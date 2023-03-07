@@ -1,10 +1,14 @@
 import {
     InteractionReplyOptions,
-    WebhookEditMessageOptions
+    WebhookEditMessageOptions,
+    User
 } from 'discord.js'
+import {CommandCaregory} from '../types'
 
 export const Colors = {
-    error: 0xf54242
+    error: 0xf54242,
+    success: 0x00ff59,
+    accent: 0x007550
 }
 
 export const Reply = {
@@ -14,6 +18,20 @@ export const Reply = {
             embeds: [{
                 color: Colors.error,
                 description: msg
+            }]
+        }
+    },
+    avatar:(user: User): InteractionReplyOptions => {
+        return {
+            ephemeral: true,
+            embeds: [{
+                color: Colors.accent,
+                title: `${user.username}\'s Avatar:`,
+                image: {
+                    url: user.displayAvatarURL({
+                        size: 256
+                    })
+                }
             }]
         }
     }
