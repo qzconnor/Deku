@@ -10,7 +10,6 @@ const client = new Client({
     ]
 })
 
-
 registerEvents(client, evnets)
 
 client.login(keys.clientToken)
