@@ -33,7 +33,16 @@ export const Reply = {
                 }
             }]
         }
-    }
+    },
+    success:(msg: string): InteractionReplyOptions => {
+        return {
+            ephemeral: true,
+            embeds: [{
+                color: Colors.success,
+                description: msg
+            }]
+        }
+    },
 }
 
 export const EditReply = {
