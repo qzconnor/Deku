@@ -12,7 +12,7 @@ const meta = new SlashCommandBuilder()
     )
     
 
-export default command(meta, ({interaction}) => {
+export default command(meta, ({interaction, log}) => {
    const text = interaction.options.getString('text')
 
    if(!text) return interaction.reply(

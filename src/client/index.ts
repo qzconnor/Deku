@@ -2,6 +2,8 @@ import { Client, GatewayIntentBits } from 'discord.js'
 import { registerEvents } from '../utils'
 import evnets from '../events'
 import keys from "../keys"
+import { connect } from 'mongoose'
+
 
 const client = new Client({
     intents: [
@@ -9,6 +11,11 @@ const client = new Client({
         GatewayIntentBits.GuildMembers
     ]
 })
+
+connect(keys.mongoURI, {}).then(() => {
+    console.log('[MongoDB] Connected!')
+})
+
 
 registerEvents(client, evnets)
 
