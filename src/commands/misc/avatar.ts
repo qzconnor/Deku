@@ -1,7 +1,6 @@
 import { SlashCommandBuilder } from 'discord.js'
 import { command, Reply} from '../../utils'
-import commands from '..' 
-import {CommandCaregory} from '../../types'
+
 const meta = new SlashCommandBuilder()
     .setName('avatar')
     .setDescription('Display a users Avatar!')

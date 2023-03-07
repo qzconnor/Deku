@@ -3,7 +3,6 @@ import {
     WebhookEditMessageOptions,
     User
 } from 'discord.js'
-import {CommandCaregory} from '../types'
 
 export const Colors = {
     error: 0xf54242,

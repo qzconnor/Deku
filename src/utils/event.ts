@@ -15,7 +15,7 @@ export function registerEvents(client: Client, events: Event<any>[]): void {
                 client,
                 log: (...args: unknown[]) => console.log(`[${event.id}]`, ...args)
             }
-
+            
             try {
                 await event.exec(props, ...args)
             } catch(error) {
