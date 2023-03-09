@@ -5,8 +5,8 @@ import guildCreate from './guildCreate'
 import guildDelete from './guildDelete'
 
 const events: Event<any>[] = [
+    ...interactionCreate,
     ready,
-    interactionCreate,
     guildCreate,
     guildDelete
 ]

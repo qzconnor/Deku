@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from 'discord.js'
-import { command, Reply} from '../../utils'
+import { Reply, command} from '../../utils'
 
 const meta = new SlashCommandBuilder()
     .setName('avatar')

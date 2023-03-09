@@ -1,15 +1,15 @@
-import commands from "../commands"
-import { Command } from "../types"
-import { EditReply, event, Reply } from "../utils"
+import commands from "../../commands"
+import { Command } from "../../types"
+import { EditReply, event, Reply } from "../../utils"
 
 const allCommands = commands.map(({commands}) => commands).flat()
 const allCommandMap = new Map<string, Command>(
     allCommands.map(c => [c.meta.name, c])
 )
 
+
 export default event('interactionCreate', async ({log, client}, interaction) => {
     if(!interaction.isChatInputCommand()) return
-
     try {
         const commandName = interaction.commandName
         const command = allCommandMap.get(commandName)
@@ -31,4 +31,5 @@ export default event('interactionCreate', async ({log, client}, interaction) => 
             Reply.error('Something went wrong :(')
         )
     }
+
 })
