@@ -3,8 +3,7 @@ import {
     Client,
     ChatInputCommandInteraction,
     SlashCommandBuilder,
-    ActionRowBuilder,
-    AnyComponentBuilder,
+    SlashCommandSubcommandsOnlyBuilder
 } from 'discord.js'
 import { LoggerFunction } from '../types'
 
@@ -16,9 +15,8 @@ export interface CommandProps {
 
 export type CommandExec = 
     (props: CommandProps) => Awaitable<unknown>
-export type CommandMeta = 
-    | SlashCommandBuilder
-    | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">
+export type CommandMeta = SlashCommandBuilder | SlashCommandSubcommandsOnlyBuilder
+    //| Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">
 
 
 

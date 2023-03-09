@@ -1,7 +1,8 @@
 import {
     InteractionReplyOptions,
     WebhookEditMessageOptions,
-    User
+    User,
+    GuildMember,
 } from 'discord.js'
 
 export const Colors = {
@@ -20,12 +21,14 @@ export const Reply = {
             }]
         }
     },
-    avatar:(user: User): InteractionReplyOptions => {
+    avatar:(user: User | GuildMember): InteractionReplyOptions => {
+        const name = user instanceof GuildMember ? user.nickname ? user.nickname : user.displayName : user.username;
+
         return {
             ephemeral: true,
             embeds: [{
                 color: Colors.accent,
-                title: `${user.username}\'s Avatar:`,
+                title: `${name}\'s Avatar:`,
                 image: {
                     url: user.displayAvatarURL({
                         size: 256
