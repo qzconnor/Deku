@@ -4,12 +4,14 @@ import {
     CommandCategoryExtra,
     CommandExec,
     CommandMeta,
+    CommandAutocomplete
 } from '../types'
 
-export function command(meta: CommandMeta, exec: CommandExec): Command {
+export function command(meta: CommandMeta, exec: CommandExec, autocomplete: CommandAutocomplete | undefined = undefined): Command {
     return {
         meta,
-        exec
+        exec,
+        autocomplete
     }
 }
 

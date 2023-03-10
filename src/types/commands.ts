@@ -3,7 +3,8 @@ import {
     Client,
     ChatInputCommandInteraction,
     SlashCommandBuilder,
-    SlashCommandSubcommandsOnlyBuilder
+    SlashCommandSubcommandsOnlyBuilder,
+    AutocompleteInteraction
 } from 'discord.js'
 import { LoggerFunction } from '../types'
 
@@ -13,16 +14,26 @@ export interface CommandProps {
     log: LoggerFunction
 }
 
+export interface AutoCompleteProps {
+    interaction: AutocompleteInteraction
+    client: Client
+    log: LoggerFunction
+}
+
 export type CommandExec = 
     (props: CommandProps) => Awaitable<unknown>
-export type CommandMeta = SlashCommandBuilder | SlashCommandSubcommandsOnlyBuilder
-    //| Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">
+
+export type CommandAutocomplete = 
+    (props: AutoCompleteProps) => Awaitable<unknown>
+
+export type CommandMeta = SlashCommandBuilder | SlashCommandSubcommandsOnlyBuilder | Omit<SlashCommandBuilder, "addSubcommand" | "addSubcommandGroup">
 
 
 
 export interface Command {
     meta: CommandMeta,
     exec: CommandExec,
+    autocomplete?: CommandAutocomplete
 }
 
 export interface CommandCategoryExtra {

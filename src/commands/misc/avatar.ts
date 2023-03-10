@@ -51,3 +51,6 @@ export default command(meta, ({interaction}) => {
 
     
 })
+
+// GuildID | UserID | BannerID
+//https://cdn.discordapp.com/guilds/728042667723849850/users/299976373353578496/banners/9142de40d6b6b2174d29bf0e6110371a.png?size=480
